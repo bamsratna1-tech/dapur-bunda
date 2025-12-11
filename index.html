@@ -3,25 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dapur Bunda Fia - Masakan rumahan fresh, halal, dan lezat. Pesan nasi box, brownies, dan dessert enak di sini.">
     <title>Dapur Bunda Fia - Masakan Rumahan Penuh Cinta</title>
     
-    <!-- Preconnect ke Resource Eksternal (Biar lebih ngebut) -->
+    <!-- ========================================= -->
+    <!-- SEO & SOCIAL MEDIA PREVIEW (META TAGS)    -->
+    <!-- ========================================= -->
+    
+    <!-- Deskripsi Utama -->
+    <meta name="description" content="Dapur Bunda Fia - Masakan rumahan fresh, halal, dan lezat. Pesan nasi box, brownies, dan dessert enak di sini.">
+
+    <!-- Open Graph / Facebook / WhatsApp (WAJIB UNTUK PREVIEW) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dapur-bunda.pages.dev/">
+    <meta property="og:title" content="Dapur Bunda Fia - Masakan Rumahan Penuh Cinta">
+    <meta property="og:description" content="Masakan rumahan fresh, halal, dan lezat. Pesan nasi box, brownies, dan dessert enak di sini.">
+    <!-- PENTING: Link gambar harus FULL URL (https://...) -->
+    <meta property="og:image" content="https://dapur-bunda.pages.dev/aset/bunda.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dapur-bunda.pages.dev/">
+    <meta property="twitter:title" content="Dapur Bunda Fia - Masakan Rumahan Penuh Cinta">
+    <meta property="twitter:description" content="Masakan rumahan fresh, halal, dan lezat. Pesan nasi box, brownies, dan dessert enak di sini.">
+    <meta property="twitter:image" content="https://dapur-bunda.pages.dev/aset/bunda.webp">
+
+    <!-- ========================================= -->
+    <!-- END OF META TAGS                          -->
+    <!-- ========================================= -->
+    
+    <!-- 1. Preconnect ke Server Penting (Biar koneksi awal ngebut) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
-    <!-- Tailwind CSS (CDN) -->
+    <!-- 2. Optimasi Font: Swap biar teks langsung muncul walau font belum load -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+
+    <!-- 3. Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
-    <!-- Google Fonts (Optimized with display=swap) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
-    
+    <!-- Custom Style Kecil -->
     <style>
         body { font-family: 'Poppins', sans-serif; }
         .font-signature { font-family: 'Sacramento', cursive; }
@@ -30,6 +51,8 @@
             background-image: radial-gradient(#fda4af 1px, transparent 1px);
             background-size: 24px 24px;
         }
+        /* Trik agar icon tidak flash/goyang saat load */
+        .fa, .fas, .fab { display: inline-block; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-700 antialiased">
@@ -38,7 +61,7 @@
     <nav class="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50 transition-all">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="bg-pink-100 p-2 rounded-full">
+                <div class="bg-pink-100 p-2 rounded-full" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;">
                     <i class="fa-solid fa-heart text-pink-500 text-xl"></i>
                 </div>
                 <span class="font-bold text-xl text-gray-800">Dapur Bunda Fia</span>
@@ -57,8 +80,9 @@
             <!-- FOTO PROFIL BUNDA (LCP Element - Prioritas Tinggi) -->
             <div class="mb-6 flex justify-center">
                 <div class="relative">
-                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-xl mx-auto">
-                        <!-- Tambahkan width & height agar tidak layout shift -->
+                    <!-- Beri ukuran fix pada container agar tidak layout shift -->
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-xl mx-auto bg-gray-200">
+                        <!-- fetchpriority="high" agar gambar ini didownload duluan -->
                         <img 
                             src="aset/bunda.webp" 
                             alt="Bunda Fia" 
@@ -114,7 +138,7 @@
             
             <!-- Menu 1: Choco Lumer -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition group">
-                <div class="h-48 overflow-hidden relative">
+                <div class="h-48 overflow-hidden relative bg-gray-100">
                     <!-- Loading Lazy agar tidak membebani load awal -->
                     <img 
                         src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
@@ -140,7 +164,7 @@
 
             <!-- Menu 2: Strawberry Cake -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition group">
-                <div class="h-48 overflow-hidden relative">
+                <div class="h-48 overflow-hidden relative bg-gray-100">
                     <img 
                         src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
@@ -164,7 +188,7 @@
 
             <!-- Menu 3: Brownies Sekat -->
             <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition group">
-                <div class="h-48 overflow-hidden relative">
+                <div class="h-48 overflow-hidden relative bg-gray-100">
                     <img 
                         src="https://img-global.cpcdn.com/recipes/dc319ee0dac5486f/680x781cq80/brownies-sekat-foto-resep-utama.jpg" 
                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
@@ -188,7 +212,7 @@
 
              <!-- Menu 4: Salad Buah -->
              <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition group">
-                <div class="h-48 overflow-hidden relative">
+                <div class="h-48 overflow-hidden relative bg-gray-100">
                     <img 
                         src="https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
@@ -257,6 +281,11 @@
     <a href="https://wa.me/6281330269145" class="fixed bottom-4 right-4 bg-green-500 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-3xl hover:bg-green-600 hover:-translate-y-1 transition-all z-50" aria-label="Chat WhatsApp Floating">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <!-- 4. Pindahkan CSS Icon ke Bawah (Defer Rendering) -->
+    <!-- Ini trik agar tampilan utama muncul dulu, baru icon dimuat belakangan -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
 </body>
 </html>
